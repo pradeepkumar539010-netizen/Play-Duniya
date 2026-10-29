@@ -1,82 +1,74 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Play Duniya</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
-            text-align: center;
-            padding: 20px;
-            margin: 0;
-        }
-        h1 {
-            color: #ff5722;
-        }
-        .game-card {
-            background: white;
-            padding: 15px;
-            margin: 20px auto;
-            border-radius: 10px;
-            max-width: 300px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
-        .game-card img {
-            width: 100%;
-            height: 150px;
-            object-fit: cover;
-            border-radius: 8px;
-        }
-        .btn {
-            display: inline-block;
-            background-color: #28a745;
-            color: white;
-            padding: 10px 20px;
-            margin-top: 10px;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#080d0a">
+<title>Play Duniya — Your World of Games</title>
+<style>
+:root{--bg:#070b08;--panel:#101812;--panel2:#151f18;--green:#8cff00;--green2:#39e75f;--text:#f4f8f4;--muted:#9aa89d;--line:#26352a}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 50% -10%,#1c3a20 0,transparent 36%),var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+a{color:inherit;text-decoration:none}.wrap{width:min(1120px,100% - 32px);margin:auto}
+header{position:sticky;top:0;z-index:5;background:#080d0aeb;backdrop-filter:blur(12px);border-bottom:1px solid #203026}
+.nav{height:70px;display:flex;align-items:center;justify-content:space-between;gap:14px}.brand{display:flex;align-items:center;gap:10px;font-weight:950;letter-spacing:.3px;font-size:21px}.brand-icon{width:39px;height:39px;border-radius:12px;background:linear-gradient(145deg,var(--green),#1da83f);display:grid;place-items:center;color:#071006;font-size:22px;box-shadow:0 0 22px #6dff0040}.brand span:last-child{color:var(--green)}.nav-pill{border:1px solid #38513b;background:#101b12;border-radius:999px;padding:9px 13px;color:#dfffd5;font-size:12px;font-weight:750}
+.hero{padding:35px 0 24px}.hero-box{position:relative;overflow:hidden;border:1px solid #2e492f;border-radius:25px;padding:30px 23px;background:linear-gradient(115deg,#122317 0%,#0b120d 58%,#142719 100%)}.hero-box:after{content:"🎮";position:absolute;right:15px;bottom:-25px;font-size:135px;opacity:.13;transform:rotate(-16deg)}.eyebrow{color:var(--green);font-size:11px;font-weight:900;letter-spacing:2px;text-transform:uppercase}.hero h1{font-size:clamp(32px,7vw,54px);line-height:1.02;margin:13px 0 12px;max-width:600px;letter-spacing:-1.5px}.hero h1 em{font-style:normal;color:var(--green)}.hero p{color:#b9c8bb;max-width:480px;line-height:1.6;margin:0 0 20px;font-size:14px}.hero-actions{display:flex;gap:10px;flex-wrap:wrap}.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:12px;padding:12px 17px;font-weight:900;font-size:13px;cursor:pointer}.btn-primary{background:var(--green);color:#071006;box-shadow:0 5px 22px #8cff0028}.btn-secondary{background:#18251b;border:1px solid #334a36;color:#f0fff1}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:15px}.stat{border:1px solid var(--line);border-radius:15px;padding:13px;background:#0d140f}.stat strong{display:block;color:var(--green);font-size:18px}.stat span{font-size:11px;color:var(--muted)}
+.section-head{display:flex;align-items:end;justify-content:space-between;gap:12px;margin:25px 0 15px}.section-head h2{margin:0;font-size:23px;letter-spacing:-.5px}.section-head p{margin:4px 0 0;color:var(--muted);font-size:12px}.search{width:100%;display:flex;align-items:center;gap:10px;padding:13px 15px;background:#101812;border:1px solid #2a3a2e;border-radius:14px;margin:0 0 13px}.search input{background:transparent;border:0;outline:0;color:var(--text);font:inherit;width:100%;font-size:14px}.chips{display:flex;gap:8px;overflow:auto;padding:1px 0 7px;scrollbar-width:none}.chip{white-space:nowrap;border:1px solid #2b3a2e;background:#101812;color:#bac8bd;border-radius:999px;padding:9px 13px;font-size:12px;font-weight:750;cursor:pointer}.chip.active{background:var(--green);color:#071006;border-color:var(--green)}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px;margin:15px 0 30px}.card{overflow:hidden;border:1px solid #26372a;border-radius:17px;background:linear-gradient(180deg,#121b14,#0c120e);transition:transform .18s,border-color .18s}.card:hover{transform:translateY(-3px);border-color:#7acb43}.cover{height:128px;display:grid;place-items:center;position:relative;overflow:hidden;font-size:56px;background:linear-gradient(135deg,#244e2a,#0e2415)}.cover:before{content:"";position:absolute;width:170px;height:170px;border:1px solid #ffffff1b;border-radius:50%;left:-40px;top:-70px}.cover:after{content:"";position:absolute;width:120px;height:120px;border:1px solid #ffffff15;border-radius:50%;right:-30px;bottom:-70px}.cover span{filter:drop-shadow(0 7px 9px #0008);z-index:1}.badge{position:absolute;top:9px;left:9px;background:#061008c9;color:#caff9b;border:1px solid #8cff0040;border-radius:7px;padding:5px 7px;font-size:9px;font-weight:900;letter-spacing:.6px}.card-body{padding:12px}.card h3{font-size:14px;margin:0 0 5px}.meta{font-size:11px;color:var(--muted);display:flex;justify-content:space-between;gap:6px;margin-bottom:12px}.download{width:100%;padding:10px 8px;border-radius:10px;background:var(--green);color:#071006;font-weight:950;font-size:12px;border:0;cursor:pointer}.download:active{transform:scale(.98)}.notice{background:#111a13;border:1px dashed #405442;border-radius:14px;padding:14px;color:#adbcaf;font-size:12px;line-height:1.55;margin-bottom:28px}.notice strong{color:#dfffdc}
+footer{border-top:1px solid #243329;padding:22px 0 32px;color:#8d9b90;font-size:11px;line-height:1.6}.foot-brand{color:#eaf7eb;font-weight:900;font-size:15px;margin-bottom:6px}
+.empty{display:none;color:var(--muted);text-align:center;padding:30px 0}
+@media(min-width:650px){.hero-box{padding:45px}.grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.cover{height:155px}.stats{max-width:470px}.hero{padding-top:42px}}
+@media(min-width:900px){.grid{grid-template-columns:repeat(4,minmax(0,1fr))}.cover{height:165px}}
+</style>
 </head>
 <body>
-
-    <h1>🎮 Play Duniya 🎮</h1>
-    <p>Apna game khele aur earn karein</p>
-
-    <div class="game-card">
-        <!-- Yahan photo ka link dalein -->
-        <img src="YAHAN_GAME_KE_PHOTO_KA_LINK_DAALEIN" alt="Game Photo">
-        
-        <h3>Game Name</h3>
-        
-        <!-- Yahan apna referral link dalein -->
-        <a href="YAHAN_APNA_REFERRAL_LINK_DAALEIN" class="btn" target="_blank">Play & Earn</a>
+<header><div class="wrap nav">
+  <a class="brand" href="#"><span class="brand-icon">▶</span><span>PLAY <span>DUNIYA</span></span></a>
+  <a class="nav-pill" href="#games">🎮 EXPLORE GAMES</a>
+</div></header>
+<main class="wrap">
+  <section class="hero">
+    <div class="hero-box">
+      <div class="eyebrow">YOUR WORLD OF GAMES</div>
+      <h1>Find your next<br><em>favourite game.</em></h1>
+      <p>Discover mobile games in one place. Check each game's details and continue to its official download page.</p>
+      <div class="hero-actions"><a class="btn btn-primary" href="#games">🎮 Browse Games</a><a class="btn btn-secondary" href="#about">ℹ️ How it works</a></div>
     </div>
+    <div class="stats"><div class="stat"><strong>Mobile-first</strong><span>Made for your phone</span></div><div class="stat"><strong>Easy access</strong><span>Game links in one place</span></div><div class="stat"><strong>Play safe</strong><span>Use official sources</span></div></div>
+  </section>
 
-</body>
-</html>
-        const myGames = [
-            {
-                name: "WIN RUMMY 1",
-                image: "  ",
-                link: "YAHAN_GAME_1_KA_REFERRAL_LINK"
-            },
-            {
-                name: "Game Name 2",
-                image: "YAHAN_GAME_2_PHOTO_KA_LINK",
-                link: "YAHAN_GAME_2_KA_REFERRAL_LINK"
-            },
-            {
-                name: "Game Name 3",
-                image: "YAHAN_GAME_3_PHOTO_KA_LINK",
-                link: "YAHAN_GAME_3_KA_REFERRAL_LINK"
-            },
-            {
-                name: "Game Name 4",
-                image: "YAHAN_GAME_4_PHOTO_KA_LINK",
-                link: "YAHAN_GAME_4_KA_REFERRAL_LINK"
-            }
-        ];
+  <section id="games">
+    <div class="section-head"><div><h2>Popular Games</h2><p>Choose a game to see its download option.</p></div></div>
+    <label class="search">🔎 <input id="search" type="search" placeholder="Search games..." aria-label="Search games"></label>
+    <div class="chips" aria-label="Game categories"><button class="chip active" data-filter="All">All Games</button><button class="chip" data-filter="Action">Action</button><button class="chip" data-filter="Puzzle">Puzzle</button><button class="chip" data-filter="Casual">Casual</button><button class="chip" data-filter="Card">Card</button></div>
+    <div class="grid" id="gameGrid"></div><div class="empty" id="empty">No games found. Try another search.</div>
+  </section>
+
+  <section id="about" class="notice"><strong>ℹ️ Before downloading:</strong> Play Duniya is a game discovery page. Always download from the game's official website or app store. Referral commissions are only available when the game publisher offers an approved referral/affiliate programme. Replace demo links before publishing.</section>
+</main>
+<footer><div class="wrap"><div class="foot-brand">🎮 PLAY DUNIYA</div>Your World of Games · © <span id="year"></span> Play Duniya<br>Game names, images and trademarks belong to their respective owners. This demo uses illustrative placeholders and is not affiliated with any game publisher.</div></footer>
+<script>
+/* Yahan aap apne 4 games ke naam aur referral link (url) roz badal sakte hain */
+const games = [
+ {name:"Win Rummy",category:"Card",emoji:"🃏",label:"CARD",color:"linear-gradient(135deg,#633b78,#20132c)",size:"Mobile game",url:"YAHAN_APNA_REFERRAL_LINK_DAALEIN"},
+ {name:"Game Name 2",category:"Action",emoji:"⚔️",label:"ACTION",color:"linear-gradient(135deg,#6c2929,#251116)",size:"Mobile game",url:"YAHAN_APNA_REFERRAL_LINK_DAALEIN"},
+ {name:"Game Name 3",category:"Casual",emoji:"🏎️",label:"CASUAL",color:"linear-gradient(135deg,#694b17,#24180b)",size:"Mobile game",url:"YAHAN_APNA_REFERRAL_LINK_DAALEIN"},
+ {name:"Game Name 4",category:"Puzzle",emoji:"🧩",label:"PUZZLE",color:"linear-gradient(135deg,#274d78,#111d34)",size:"Mobile game",url:"YAHAN_APNA_REFERRAL_LINK_DAALEIN"}
+];
+let currentFilter="All";
+const grid=document.getElementById("gameGrid"), search=document.getElementById("search");
+function render(){
+ const q=search.value.trim().toLowerCase();
+ const list=games.filter(g=>(currentFilter==="All"||g.category===currentFilter)&&g.name.toLowerCase().includes(q));
+ grid.innerHTML=list.map((g)=>`<article class="card"><div class="cover" style="background:${g.color}"><span>${g.emoji}</span><div class="badge">${g.label}</div></div><div class="card-body"><h3>${g.name}</h3><div class="meta"><span>${g.category}</span><span>📱 Android</span></div><button class="download" data-name="${g.name.replace(/"/g,'&quot;')}" data-url="${g.url}">DOWNLOAD ↗</button></div></article>`).join("");
+ document.getElementById("empty").style.display=list.length?"none":"block";
+ grid.querySelectorAll(".download").forEach(btn=>btn.addEventListener("click",()=>{
+   const url=btn.dataset.url;
+   if(url && /^https:\/\/\S+$/i.test(url)) window.open(url,"_blank","noopener,noreferrer");
+   else alert("Pehle yahan apna asli referral link dalein!");
+ }));
+}
+document.querySelectorAll(".chip").forEach(btn=>btn.addEventListener("click",()=>{document.querySelectorAll(".chip").forEach(b=>b.classList.remove("active"));btn.classList.add("active");currentFilter=btn.dataset.filter;render()}));
+search.addEventListener("input",render);document.getElementById("year").textContent=new Date().getFullYear();render();
+</script>
+</body></html>
